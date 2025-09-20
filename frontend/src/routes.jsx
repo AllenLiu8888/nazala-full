@@ -12,6 +12,9 @@ import VotingPage from './pages/mobile/VotingPage'; // 投票页面
 import WaitingPage from './pages/mobile/WaitingPage'; // 等待页面
 import HistoryPage from './pages/mobile/History'; // 玩家查看历史游戏的页面
 
+// 管理员页面组件
+import AdminDashboard from './pages/admin/AdminDashboard'; // 管理员仪表板
+
 // 创建简化的路由配置
 import App from './App.jsx';  // 导入 App 组件
 
@@ -33,6 +36,10 @@ export const router = createBrowserRouter([
           { path: "game", element: <GameDashboard /> },
           { path: "gameover", element: <GameOver /> },
         ]
+      },
+      {
+        path: "admin",
+        element: <AdminDashboard />
       },
       {
         path: "game/:gameId",

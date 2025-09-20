@@ -1,5 +1,6 @@
 import json
 from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpRequest
 from .models import Game, Option, Player
 from .decorators import require_player, json_response, with_game
@@ -35,6 +36,7 @@ def game_id_detail(request: HttpRequest, game: Game):
 
 
 # @require_http_methods(["POST"])  # TODO: enable POST method after testing
+@csrf_exempt
 @json_response
 @with_game
 def game_id_start(request: HttpRequest, game: Game):
@@ -52,6 +54,7 @@ def game_id_start(request: HttpRequest, game: Game):
 
 
 # @require_http_methods(["POST"])  # TODO: enable POST method after testing
+@csrf_exempt
 @json_response
 @with_game
 def game_id_archive(request: HttpRequest, game: Game):
@@ -80,6 +83,7 @@ def game_id_turn_current(request: HttpRequest, game: Game):
 
 
 # @require_http_methods(["POST"])  # TODO: enable POST method after testing
+@csrf_exempt
 @json_response
 @with_game
 def game_id_turn_init(request: HttpRequest, game: Game):
@@ -102,6 +106,7 @@ def game_id_turn_init(request: HttpRequest, game: Game):
 
 
 # @require_http_methods(["POST"])  # TODO: enable POST method after testing
+@csrf_exempt
 @json_response
 @with_game
 def game_id_turn_submit(request: HttpRequest, game: Game):
@@ -115,7 +120,7 @@ def game_id_turn_submit(request: HttpRequest, game: Game):
 
     # TODO: make it asynchronous
     llm_resp = ask_next_question_from_llm(turn)
-    next_turn = create_turn_from_llm_response(llm_resp)
+    next_turn = create_turn_from_llm_response(game, llm_resp)
 
     return True, {
         "next_turn": next_turn.to_dict(),
@@ -124,6 +129,7 @@ def game_id_turn_submit(request: HttpRequest, game: Game):
 
 
 # @require_http_methods(["POST"])  # TODO: enable POST method after testing
+@csrf_exempt
 @json_response
 @with_game
 def game_id_player_init(request: HttpRequest, game: Game):
@@ -148,6 +154,7 @@ def game_id_player_init(request: HttpRequest, game: Game):
 
 
 # @require_http_methods(["POST"])  # TODO: enable POST method after testing
+@csrf_exempt
 @json_response
 @require_player
 @with_game
