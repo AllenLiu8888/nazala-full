@@ -1,0 +1,13 @@
+// Python venv path
+venv/
+
+// Django
+db.sqlite3
+
+__pycache__/
+
+// Logs
+logs/
+
+// mac OS
+.DS_Store

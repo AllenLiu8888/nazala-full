@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=ZCOOL+KuaiLe&display=swap');
+@import "tailwindcss";
+
+
+* {
+  box-sizing: border-box;
+}
+
+html { overscroll-behavior: none; }
+body { margin: 0; }
+
+
+@theme {
+  --font-pixel: "Pixelify Sans", ui-sans-serif, system-ui, -apple-system,
+                "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial,
+                "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* 自定义的全局样式（如果需要） */
+
+
+/* 可复用的组件类 - 使用标准 CSS */
+.pixel-text {
+  font-family: var(--font-pixel);
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: rgb(103 232 249);
+}
+
+.btn-secondary {
+  padding: 0.5rem 1rem;
+  background-color: rgb(229 231 235);
+  color: rgb(31 41 55);
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgb(209 213 219);
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  border: 1px solid rgb(243 244 246);
+}
+
+.section-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
